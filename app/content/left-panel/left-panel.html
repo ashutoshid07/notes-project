@@ -1,0 +1,5 @@
+<div ng-repeat="list in $ctrl.list">
+    <h4>{{list.heading}}</h4>
+    <h5 style="width:30%;float:left;margin-top:3px;"><b>{{(list.date.getHours())}}:{{(list.date.getMinutes() < 10 ? '0' : '') + list.date.getMinutes()}}</b></h5>   <span style="width:65%;margin:10px 0px;">{{list.content.substring(0,20) || 'No additional text'}}</span>
+    <hr>
+</div>
