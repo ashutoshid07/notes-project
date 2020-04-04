@@ -1,0 +1,21 @@
+<div class="col-xs-12 menu-panel"></div>
+  <div class="col-xs-3 left-panel">
+    <div class="col-xs-12 button-panel">
+        <i class="action-icon fa fa-plus" ng-click="$ctrl.addNote()"></i>
+    </div>
+    <div class="col-xs-12 notes-list">
+      <left-panel list-items="$ctrl.list" selected-note="$ctrl.called(key)"></left-panel>
+    </div>
+  </div>
+  <div class="col-xs-9 right-panel">
+    <div class="col-xs-12 button-panel">
+        <span>{{$ctrl.displayDate}}</span>
+        <div style="float:right;">
+          <button style="margin-right: 10px;color:black;" ng-click="$ctrl.saveState()">save</button>
+          <i class="action-icon fa fa-trash-o" ng-click="$ctrl.removeNote()"></i>
+        </div>
+    </div>
+    <div class="col-xs-12 notes-content">
+      <right-panel content="$ctrl.selectedNote"></right-panel>
+    </div>
+</div>

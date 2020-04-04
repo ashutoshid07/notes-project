@@ -17,23 +17,9 @@
     <!-- endbuild -->
   </head>
   <body ng-app="notesProjectApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-view="" style="height:100%;"></div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+    <div ng-view="" style="height:100%; overflow: hidden;"></div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -49,11 +35,18 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="content/left-panel/left-panel.js"></script>
-        <script src="content/right-panel/right-panel.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!-- add controller declarations here -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="components/left-panel/left-panel.js"></script>
+    <script src="components/right-panel/right-panel.js"></script>
+    <script src="components/container-component/container-component.js"></script>
+    <!-- controller declarations end here -->
+
+    <!-- add service declarations here -->
+    <script src="services/notes-service.js"></script>
+    <!-- service declarations end here -->
+    <!-- endbuild -->
 </body>
 </html>

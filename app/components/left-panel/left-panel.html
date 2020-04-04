@@ -1,0 +1,6 @@
+<div ng-repeat="list in $ctrl.listItems" id="note{{$index}}" class="notes" ng-click="$ctrl.selectNote(list, $index)">
+    <h4 style="min-height:19px">{{list.heading}}</h4>
+    <h5 style="min-width:70px;float:left;margin-top:3px;"><b>{{list.date | date:'hh:mma'}}</b></h5>  
+    <span style="width:65%;margin:10px 0px;">{{list.body.substring(0,20) || 'No additional text'}}</span>
+    <hr style="margin-bottom:0px;border-color:#303135">
+</div>
