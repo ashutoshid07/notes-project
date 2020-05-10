@@ -1,7 +1,5 @@
 function ContainerComponentController($scope, $element, $attrs, notesService, $filter) {
     var ctrl = this;
-    let currentDate = new Date;
-    let currentMonth = '';
     let selectedList = -1;
     const defaultNote = {
         heading: '',
@@ -13,11 +11,10 @@ function ContainerComponentController($scope, $element, $attrs, notesService, $f
     ctrl.displayDate = '';
     ctrl.called = function(key) {
         for(const [index, value] of ctrl.list.entries()) {
-            if(value == key) {
+            if(value === key) {
                 selectedList = index;
                 ctrl.selectedNote = value;
                 ctrl.displayDate = $filter('date')(value.date, "MMM dd, yyyy") + ' at ' + $filter('date')(value.date, "HH:mma");
-                console.log(ctrl.selectedNote);
             }
         }
     };
@@ -27,12 +24,10 @@ function ContainerComponentController($scope, $element, $attrs, notesService, $f
     };
 
     ctrl.$onInit = function() {
-        notesService.restoreNotes();
-        ctrl.list = notesService.notesList;
+        ctrl.list = notesService.restoreNotes();
     };
     ctrl.saveState = function() {
-        notesService.notesList = ctrl.list;
-        notesService.saveNotes();
+        notesService.saveNotes(ctrl.list);
     };
     ctrl.removeNote = function() {
         ctrl.list.splice(selectedList,1);
@@ -40,10 +35,12 @@ function ContainerComponentController($scope, $element, $attrs, notesService, $f
         ctrl.displayDate = "";
         selectedList = -1;
     };
+    ctrl.updateContent = function(updatedContent) {
+        ctrl.selectedNote = updatedContent;
+    }
 }
 angular.module('notesProjectApp').component('containerComponent', {
     templateUrl: 'components/container-component/container-component.html',
     controller: ContainerComponentController,
-    bindings: {},
-    transclude: true
+    bindings: {}
 });

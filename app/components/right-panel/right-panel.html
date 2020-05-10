@@ -1,6 +1,6 @@
 <div class="col-xs-12 content-header" ng-if="$ctrl.content">
-    <textarea ng-model="$ctrl.content.heading" placeholder="Heading"></textarea>
+    <textarea ng-model="$ctrl.content.heading" placeholder="Heading" ng-blur="$ctrl.blurred($event)"></textarea>
 </div>
 <div class="col-xs-12 content-body" ng-if="$ctrl.content">
-    <textarea ng-model="$ctrl.content.body" placeholder="Content"></textarea>
+    <textarea ng-model="$ctrl.content.body" placeholder="Content" ng-blur="$ctrl.blurred($event)"></textarea>
 </div>

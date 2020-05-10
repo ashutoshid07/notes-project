@@ -1,19 +1,11 @@
 angular.module('notesProjectApp').factory('notesService', ['$rootScope', function ($rootScope) {
-    var service = {
-
-        notesList: [],
-
-        saveNotes: function () {
-            sessionStorage.notesService = angular.toJson(service.notesList);
+    return {
+        saveNotes: function (notesList) {
+            return sessionStorage.notesService = angular.toJson(notesList);
         },
 
         restoreNotes: function () {
-            service.notesList = angular.fromJson(sessionStorage.notesService) || service.notesList;
+            return angular.fromJson(sessionStorage.notesService) || [];
         }
     }
-
-    $rootScope.$on("restoreNotes", service.saveNotes);
-    $rootScope.$on("restoreNotes", service.restoreNotes);
-
-    return service;
 }]);

@@ -29,17 +29,40 @@ body{
     height: 25px;
     text-align: center;
 }
+.button-div {
+    float: right;
+}
+.save-button {
+    margin-right: 10px;
+    color:black;
+}
 .button-panel i{
     float: right;
     margin-top: 5px;
 }
-.notes-list{
+.notes-list {
     padding: 0px!important;
 }
-.notes{
+.notes-list-div {
     padding: 10px 0 0 20px;
     min-height: 90px;
     cursor: pointer;
+}
+.notes-list-header {
+    min-height:19px
+}
+.notes-list-date{
+    min-width:70px;
+    float:left;
+    margin-top:3px;
+}
+.notes-list-content{
+    width:65%;
+    margin:10px 0px;
+}
+.notes-list-break {
+    margin-bottom:0px;
+    border-color:#303135;
 }
 .notes-content{
     padding: 0px!important;
